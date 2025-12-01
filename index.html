@@ -71,7 +71,6 @@
       100% { filter: drop-shadow(0 0 15px #ff00ff); }
     }
 
-    /* ====== CONTEÚDO PRINCIPAL ====== */
     main {
       flex: 1;
       display: flex;
@@ -96,7 +95,25 @@
       justify-content: center;
     }
 
-    /* ====== BOTÕES ====== */
+    .botoes-pequenos {
+      margin-top: -15px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    /* INVISÍVEL */
+    .botao-mini {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: none;
+    }
+
     .botao {
       position: relative;
       display: inline-block;
@@ -115,38 +132,11 @@
       backdrop-filter: blur(6px);
     }
 
-    .botao::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, #8a2be2, #00b3ff, #ff00ff);
-      transform: rotate(0deg);
-      transition: all 0.4s ease;
-      z-index: -1;
-      opacity: 0;
-      border-radius: 40px;
-    }
-
-    .botao:hover::before {
-      opacity: 1;
-      animation: rotateGlow 3s linear infinite;
-    }
-
     .botao:hover {
       transform: scale(1.08);
       box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
-      color: #fff;
     }
 
-    @keyframes rotateGlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* ====== RODAPÉ ====== */
     footer {
       text-align: center;
       padding: 20px;
@@ -161,28 +151,10 @@
       font-weight: bold;
     }
 
-    /* ====== RESPONSIVO ====== */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .icone-controle {
-        width: 1.8rem;
-        height: 1.8rem;
-      }
-      .botao {
-        width: 85%;
-        padding: 15px 0;
-      }
-      .botoes-superiores {
-        flex-direction: column;
-        gap: 25px;
-      }
-    }
   </style>
 </head>
 <body>
-  
+
   <header>
     <h1>
       <span class="titulo-texto">Jogos do Noc</span>
@@ -191,6 +163,13 @@
       </svg>
     </h1>
     <p>Escolha sua plataforma</p>
+
+    <div class="botoes-pequenos">
+      <a href="https://jogosdonoc.onrender.com/teste.html"><div class="botao-mini"></div></a>
+      <a href="https://jogosdonoc.onrender.com/teste2.html"><div class="botao-mini"></div></a>
+      <a href="https://jogosdonoc.onrender.com/teste3.html"><div class="botao-mini"></div></a>
+    </div>
+
   </header>
 
   <main>
@@ -198,18 +177,13 @@
       <a href="https://jogosdonoc.onrender.com/pc.html" class="botao">💻 PC</a>
       <a href="https://jogosdonoc.onrender.com/clll.html" class="botao">📱 Em Breve</a>
     </div>
+
     <a href="https://jogosdonoc.onrender.com/suporte.html" class="botao">🛠 Suporte</a>
   </main>
 
   <footer>
     © <span>2025</span> - Jogos Do Noc | Neon Edition
   </footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
