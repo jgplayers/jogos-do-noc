@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jogos do Noc</title>
-  <link rel="icon" href="imagens/logo.png">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="imagens/logob.png">
+
   <style>
     * {
       margin: 0;
@@ -20,17 +23,26 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      position: relative;
     }
 
     header {
+      position: relative;
       text-align: center;
       padding: 50px 20px;
       background: linear-gradient(135deg, #0a0020, #100035);
       border-bottom: 2px solid rgba(138, 43, 226, 0.5);
       box-shadow: 0 0 25px rgba(138, 43, 226, 0.2);
-      position: relative;
-      z-index: 2;
+    }
+
+    /* IMAGEM NO LUGAR DO CÍRCULO */
+    .logo-topo {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      width: 80px;
+      height: auto;
+      z-index: 10;
+      filter: drop-shadow(0 0 12px rgba(138, 43, 226, 0.9));
     }
 
     header h1 {
@@ -42,22 +54,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: 2px;
-      animation: pulse 2s infinite alternate;
-    }
-
-    .icone-controle {
-      width: 2.4rem;
-      height: 2.4rem;
-      color: #8a2be2;
-      filter: drop-shadow(0 0 8px #8a2be2);
-      transition: all 0.4s ease;
-      transform-origin: center;
-    }
-
-    header h1:hover .icone-controle {
-      color: #ff00ff;
-      filter: drop-shadow(0 0 15px #ff00ff);
-      transform: rotate(10deg);
     }
 
     header p {
@@ -66,12 +62,6 @@
       font-size: 1rem;
     }
 
-    @keyframes pulse {
-      0% { filter: drop-shadow(0 0 6px #8a2be2); }
-      100% { filter: drop-shadow(0 0 15px #ff00ff); }
-    }
-
-    /* ====== CONTEÚDO PRINCIPAL ====== */
     main {
       flex: 1;
       display: flex;
@@ -80,13 +70,6 @@
       align-items: center;
       gap: 40px;
       padding: 50px 20px;
-      position: relative;
-      animation: fadeIn 1.2s ease-out;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
 
     .botoes-superiores {
@@ -96,10 +79,7 @@
       justify-content: center;
     }
 
-    /* ====== BOTÕES ====== */
     .botao {
-      position: relative;
-      display: inline-block;
       padding: 20px 60px;
       background: rgba(255, 255, 255, 0.05);
       border: 2px solid rgba(255, 255, 255, 0.1);
@@ -108,107 +88,46 @@
       font-weight: bold;
       font-size: 1.3rem;
       text-decoration: none;
-      letter-spacing: 1px;
-      text-align: center;
-      overflow: hidden;
-      transition: all 0.3s ease;
+      transition: 0.3s;
       backdrop-filter: blur(6px);
-    }
-
-    .botao::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, #8a2be2, #00b3ff, #ff00ff);
-      transform: rotate(0deg);
-      transition: all 0.4s ease;
-      z-index: -1;
-      opacity: 0;
-      border-radius: 40px;
-    }
-
-    .botao:hover::before {
-      opacity: 1;
-      animation: rotateGlow 3s linear infinite;
     }
 
     .botao:hover {
       transform: scale(1.08);
       box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
-      color: #fff;
     }
 
-    @keyframes rotateGlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* ====== RODAPÉ ====== */
     footer {
       text-align: center;
       padding: 20px;
       background: #050515;
       color: #777;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    footer span {
-      color: #8a2be2;
-      font-weight: bold;
-    }
-
-    /* ====== RESPONSIVO ====== */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .icone-controle {
-        width: 1.8rem;
-        height: 1.8rem;
-      }
-      .botao {
-        width: 85%;
-        padding: 15px 0;
-      }
-      .botoes-superiores {
-        flex-direction: column;
-        gap: 25px;
-      }
     }
   </style>
 </head>
 <body>
-  
-  <header>
-    <h1>
-      <span class="titulo-texto">Jogos do Noc</span>
-      <svg class="icone-controle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M12 3a9 9 0 0 0-9 9v2a5 5 0 0 0 5 5h1v2a1 1 0 0 0 2 0v-2h4v2a1 1 0 0 0 2 0v-2h1a5 5 0 0 0 5-5v-2a9 9 0 0 0-9-9zm-3.5 7a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V13H6.5a.5.5 0 0 1 0-1H8v-1.5a.5.5 0 0 1 .5-.5zm6 2a1 1 0 1 1 1-1a1 1 0 0 1-1 1zm2 2a1 1 0 1 1 1-1a1 1 0 0 1-1 1z"/>
-      </svg>
-    </h1>
-    <p>Escolha sua plataforma</p>
-  </header>
 
-  <main>
-    <div class="botoes-superiores">
-      <a href="https://jogosdonoc.onrender.com/pc.html" class="botao">💻 PC</a>
-      <a href="https://jogosdonoc.onrender.com/clll.html" class="botao">📱 Em Breve</a>
-    </div>
-    <a href="https://jogosdonoc.onrender.com/suporte.html" class="botao">🛠 Suporte</a>
-  </main>
+<header>
+  <!-- IMAGEM AQUI -->
+  <img src="imagens/logob.png" alt="Logo NOC" class="logo-topo">
 
-  <footer>
-    © <span>2025</span> - Jogos Do Noc | Neon Edition
-  </footer>
+  <h1>Jogos do Noc</h1>
+  <p>Escolha sua plataforma</p>
+</header>
+
+<main>
+  <div class="botoes-superiores">
+    <a href="#" class="botao">💻 PC</a>
+    <a href="#" class="botao">📱 Em Breve</a>
+  </div>
+
+  <a href="#" class="botao">🛠 Suporte</a>
+</main>
+
+<footer>
+  © 2026 - Jogos do Noc
+</footer>
+
 </body>
 </html>
-
-
-
-
-
-
